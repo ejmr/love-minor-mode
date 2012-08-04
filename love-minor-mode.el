@@ -41,7 +41,7 @@
 (define-minor-mode love-minor-mode
   "Toggles LÖVE minor mode."
   :init-value nil
-  :lighter "LÖVE")
+  :lighter " LÖVE")
 
 (defun love/automatically-enable ()
   "This function determines whether or not to automatically
