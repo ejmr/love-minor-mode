@@ -43,4 +43,17 @@
   :init-value nil
   :lighter "LÖVE")
 
+(defun love/automatically-enable ()
+  "This function determines whether or not to automatically
+enable `love-minor-mode'.  It looks for files important to LÖVE
+projects and, if they exist, enables the mode."
+  ;; This test is a bit lacking because is easy to imagine that other
+  ;; Lua projects have 'main.lua' files without being related to LÖVE
+  ;; at all.  So maybe we should expand this to test for something
+  ;; like '*.love' files.
+  (if (file-exists-p "main.lua")
+      (love-minor-mode t)))
+
+(add-hook 'love-minor-mode-hook 'love/automatically-enable)
+
 (provide 'love-minor-mode)
