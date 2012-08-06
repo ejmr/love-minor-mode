@@ -42,6 +42,11 @@
 (defconst love-minor-mode-version-number "1.0"
   "The version number of the LÖVE minor mode.")
 
+(define-minor-mode love-minor-mode
+  "Toggles LÖVE minor mode."
+  :init-value nil
+  :lighter " LÖVE")
+
 (defconst love/built-in-names
   (regexp-opt
    ;; Built-in Callbacks
@@ -74,11 +79,6 @@
      "love.timer"))
   "A regular expression matching built-in LÖVE callback functions
 and standard modules.")
-
-(define-minor-mode love-minor-mode
-  "Toggles LÖVE minor mode."
-  :init-value nil
-  :lighter " LÖVE")
 
 (defun love/automatically-enable ()
   "This function determines whether or not to automatically
