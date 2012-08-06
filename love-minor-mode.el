@@ -154,6 +154,7 @@ Otherwise we open the browser to the online wiki."
 ;;;
 ;;; This section contains any wrap-up or clean-up code in the package
 ;;; before providing it for use.
+;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'love-minor-mode)
