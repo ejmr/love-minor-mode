@@ -59,7 +59,9 @@
   "A keymap for LÖVE minor mode.")
 
 (define-minor-mode love-minor-mode
-  "Toggles LÖVE minor mode."
+  "Toggles LÖVE minor mode.
+
+\\{love-minor-mode-map}"
   :init-value nil
   :lighter " LÖVE"
   :group 'love
