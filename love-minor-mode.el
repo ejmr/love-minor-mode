@@ -147,7 +147,7 @@ Otherwise we open the browser to the online wiki."
       (browse-url love-wiki-url)
     (browse-url love-local-documentation-path)))
 
-(define-key love-minor-mode-map (kbd "C-c C-f") 'love/browse-documentation)
+(define-key love-minor-mode-map (kbd "C-c C-m") 'love/browse-documentation)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
