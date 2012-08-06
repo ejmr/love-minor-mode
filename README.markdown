@@ -9,6 +9,14 @@ if you do not have `lua-mode.el` you can find it at the
 
 
 
+Reporting Bugs
+==============
+
+When reporting bugs for LÖVE minor mode please include the value of
+`love-minor-mode-version-number` in your bug report.
+
+
+
 License
 =======
 
