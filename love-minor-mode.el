@@ -42,6 +42,13 @@
 (defconst love-minor-mode-version-number "1.0"
   "The version number of the LÖVE minor mode.")
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Define a customize group for LÖVE and the minor mode.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defgroup love nil
   "The customization group for LÖVE minor mode."
   :prefix "love-"
@@ -52,6 +59,14 @@
   :init-value nil
   :lighter " LÖVE"
   :group 'love)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Automatically enable LÖVE minor mode if the current buffer
+;;; contains any of the built-in LÖVE callback functions or modules.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defconst love/built-in-names
   (regexp-opt
@@ -94,5 +109,12 @@ LÖVE-specific functions then we enable the minor mode."
       (love-minor-mode t)))
 
 (add-hook 'lua-mode-hook 'love/automatically-enable)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; This section contains any wrap-up or clean-up code in the package
+;;; before providing it for use.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'love-minor-mode)
