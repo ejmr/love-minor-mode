@@ -186,6 +186,23 @@ Otherwise we open the browser to the online wiki."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; Create a command menu.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define-key love-minor-mode-map [menu-bar] (make-sparse-keymap))
+(define-key love-minor-mode-map [menu-bar love]
+  (cons "LÖVE" (make-sparse-keymap "LÖVE")))
+
+(define-key love-minor-mode-map [menu-bar love browse-documentation]
+  '("Browse Documentation" . love/browse-documentation))
+
+(define-key love-minor-mode-map [menu-bar love create-project]
+  '("Create Project" . love/create-project-configuration))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; This section contains any wrap-up or clean-up code in the package
 ;;; before providing it for use.
 ;;;

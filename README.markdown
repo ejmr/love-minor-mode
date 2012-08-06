@@ -37,6 +37,12 @@ documentation which is available for download from the LÖVE website.
 `C-c C-m` will first attempt to open any local documentation if you
 have it.  Failing that, it will browse to the online wiki.
 
+Command Menu
+------------
+
+The features above are available through a menu by clicking on `LÖVE`
+on the mode line.
+
 
 
 Reporting Bugs
