@@ -20,7 +20,7 @@ When reporting bugs for LÖVE minor mode please include the value of
 License
 =======
 
-The license for love-minor-mode is the GNU Public License 3.  The full
+The license for LÖVE minor mode is the GNU Public License 3.  The full
 license is available in the `LICENSE` file.
 
 
