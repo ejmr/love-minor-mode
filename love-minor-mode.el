@@ -45,7 +45,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
-;;; Define a customize group for LÖVE and the minor mode.
+;;; Define a customize group for LÖVE, a keymap to use, and the minor
+;;; mode itself.
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -54,11 +55,15 @@
   :prefix "love-"
   :group 'lua)
 
+(defvar love-minor-mode-map (make-sparse-keymap)
+  "A keymap for LÖVE minor mode.")
+
 (define-minor-mode love-minor-mode
   "Toggles LÖVE minor mode."
   :init-value nil
   :lighter " LÖVE"
-  :group 'love)
+  :group 'love
+  :keymap love-minor-mode-map)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
