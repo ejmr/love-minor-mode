@@ -40,6 +40,39 @@
 (defconst love-minor-mode-version-number "1.0"
   "The version number of the LÖVE minor mode.")
 
+(defconst love/built-in-names
+  (regexp-opt
+   ;; Built-in Callbacks
+   '("love.draw"
+     "love.focus"
+     "love.joystickpressed"
+     "love.joystickreleased"
+     "love.keypressed"
+     "love.keyreleased"
+     "love.load"
+     "love.mousepressed"
+     "love.mousereleased"
+     "love.quit"
+     "love.run"
+     "love.update"
+
+     ;; Standard Modules
+     "love.audio"
+     "love.event"
+     "love.filesystem"
+     "love.font"
+     "love.graphics"
+     "love.image"
+     "love.joystick"
+     "love.keyboard"
+     "love.mouse"
+     "love.physics"
+     "love.sound"
+     "love.thread"
+     "love.timer"))
+  "A regular expression matching built-in LÖVE callback functions
+and standard modules.")
+
 (define-minor-mode love-minor-mode
   "Toggles LÖVE minor mode."
   :init-value nil
@@ -47,15 +80,11 @@
 
 (defun love/automatically-enable ()
   "This function determines whether or not to automatically
-enable `love-minor-mode'.  It looks for files important to LÖVE
-projects and, if they exist, enables the mode."
-  ;; This test is a bit lacking because is easy to imagine that other
-  ;; Lua projects have 'main.lua' files without being related to LÖVE
-  ;; at all.  So maybe we should expand this to test for something
-  ;; like '*.love' files.
-  (if (file-exists-p "main.lua")
+enable `love-minor-mode'.  If the current buffer contains any
+LÖVE-specific functions then we enable the minor mode."
+  (if (re-search-forward love/built-in-names nil t)
       (love-minor-mode t)))
 
-(add-hook 'love-minor-mode-hook 'love/automatically-enable)
+(add-hook 'lua-mode-hook 'love/automatically-enable)
 
 (provide 'love-minor-mode)
