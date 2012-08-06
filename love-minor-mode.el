@@ -33,7 +33,9 @@
 ;;;     (require 'love-minor-mode)
 ;;;
 ;;; If you are working on a LÖVE project then you can enable the minor
-;;; mode with the command (love-minor-mode t).
+;;; mode with the command (love-minor-mode t).  Emacs will activate
+;;; the minor mode automatically if you visit a Lua buffer that
+;;; contains any built-in LÖVE names.
 
 (require 'lua-mode)
 
