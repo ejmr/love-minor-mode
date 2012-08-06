@@ -120,6 +120,35 @@ LÖVE-specific functions then we enable the minor mode."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; This functionality helps to create a new LÖVE project.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun love/create-project-configuration (directory name identity)
+  "This function creates a `conf.lua' file in a given directory.
+It automatically fills the file with the love.conf() function and
+sets the name and identity of the game."
+  (interactive "DDirectory: \nsName: \nsIdentity: ")
+  (let* ((directory (concat directory "/"))
+         (conf-buffer
+          (find-file-noselect
+           (concat (file-name-directory directory) "conf.lua"))))
+    (with-current-buffer conf-buffer
+      ;; This format call is a little messy for the sake of
+      ;; indentation, even though after the insertion we indent
+      ;; everything according to the user's preferences.
+      (insert (format "function love.conf(settings)
+    settings.title = \"%s\"
+    settings.identity = \"%s\"
+end\n" name identity))
+      (indent-region (point-min) (point-max))
+      (save-buffer))))
+
+(define-key love-minor-mode-map (kbd "C-c C-p") 'love/create-project-configuration)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; Provide commands for browsing documentation like the official wiki
 ;;; and any copy of local documentation the user may have.
 ;;;
