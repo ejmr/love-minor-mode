@@ -9,6 +9,22 @@ if you do not have `lua-mode.el` you can find it at the
 
 
 
+Features
+========
+
+LÖVE minor mode provides the following features:
+
+Creating New Projects
+---------------------
+
+The command `C-c C-p` will help create a new project by creating a
+`conf.lua` file in a given directory.  The mode will automatically
+create the `love.conf()` function the LÖVE engine uses.  It will also
+fill in the name and identity, important attributes that LÖVE uses for
+things such as determining where to save game data.
+
+
+
 Reporting Bugs
 ==============
 
