@@ -42,10 +42,16 @@
 (defconst love-minor-mode-version-number "1.0"
   "The version number of the LÖVE minor mode.")
 
+(defgroup love nil
+  "The customization group for LÖVE minor mode."
+  :prefix "love-"
+  :group 'lua)
+
 (define-minor-mode love-minor-mode
   "Toggles LÖVE minor mode."
   :init-value nil
-  :lighter " LÖVE")
+  :lighter " LÖVE"
+  :group 'love)
 
 (defconst love/built-in-names
   (regexp-opt
