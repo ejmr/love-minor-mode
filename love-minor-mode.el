@@ -42,6 +42,39 @@
 (defconst love-minor-mode-version-number "1.0"
   "The version number of the LÖVE minor mode.")
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Define a customize group for LÖVE, a keymap to use, and the minor
+;;; mode itself.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defgroup love nil
+  "The customization group for LÖVE minor mode."
+  :prefix "love-"
+  :group 'lua)
+
+(defvar love-minor-mode-map (make-sparse-keymap)
+  "A keymap for LÖVE minor mode.")
+
+(define-minor-mode love-minor-mode
+  "Toggles LÖVE minor mode.
+
+\\{love-minor-mode-map}"
+  :init-value nil
+  :lighter " LÖVE"
+  :group 'love
+  :keymap love-minor-mode-map)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Automatically enable LÖVE minor mode if the current buffer
+;;; contains any of the built-in LÖVE callback functions or modules.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defconst love/built-in-names
   (regexp-opt
    ;; Built-in Callbacks
@@ -75,11 +108,6 @@
   "A regular expression matching built-in LÖVE callback functions
 and standard modules.")
 
-(define-minor-mode love-minor-mode
-  "Toggles LÖVE minor mode."
-  :init-value nil
-  :lighter " LÖVE")
-
 (defun love/automatically-enable ()
   "This function determines whether or not to automatically
 enable `love-minor-mode'.  If the current buffer contains any
@@ -88,5 +116,44 @@ LÖVE-specific functions then we enable the minor mode."
       (love-minor-mode t)))
 
 (add-hook 'lua-mode-hook 'love/automatically-enable)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Provide commands for browsing documentation like the official wiki
+;;; and any copy of local documentation the user may have.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defcustom love-wiki-url "http://love2d.org/wiki/Main_Page"
+  "URL for the official LÖVE wiki."
+  :type 'string
+  :group 'love)
+
+(defcustom love-local-documentation-path ""
+  "A path to a local copy of the LÖVE documentation, which is
+available for download from the official LÖVE wiki.  This path
+should point to the index.html file inside that official
+documentation package."
+  :type 'string
+  :group 'love)
+
+(defun love/browse-documentation ()
+  "This function opens up the browser with LÖVE documentation.
+If a path to local documentation is available then we use that.
+Otherwise we open the browser to the online wiki."
+  (interactive)
+  (if (string= love-local-documentation-path "")
+      (browse-url love-wiki-url)
+    (browse-url love-local-documentation-path)))
+
+(define-key love-minor-mode-map (kbd "C-c C-m") 'love/browse-documentation)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; This section contains any wrap-up or clean-up code in the package
+;;; before providing it for use.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'love-minor-mode)
