@@ -3,7 +3,7 @@ love-minor-mode
 
 This project adds a minor mode for [GNU Emacs][emacs] that adds tools
 to help developing [games using the LÖVE engine][love].  This minor
-mode works in conjunction with lua-mode that is part of GNU Emacs; of
+mode works in conjunction with lua-mode that is part of GNU Emacs; or
 if you do not have `lua-mode.el` you can find it at the
 [EmacsWiki][ewiki].
 
