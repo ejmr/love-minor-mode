@@ -23,6 +23,20 @@ create the `love.conf()` function the LÖVE engine uses.  It will also
 fill in the name and identity, important attributes that LÖVE uses for
 things such as determining where to save game data.
 
+Browsing Documentation
+----------------------
+
+Pressing `C-c C-m` will open up your browser with LÖVE documentation.
+Two customizable variables determine what page the command opens:
+
+1. `love-local-documentation-path`: A path to a local copy of the LÖVE
+documentation which is available for download from the LÖVE website.
+
+2. `love-wiki-url`: The URL to the official LÖVE wiki.
+
+`C-c C-m` will first attempt to open any local documentation if you
+have it.  Failing that, it will browse to the online wiki.
+
 
 
 Reporting Bugs
