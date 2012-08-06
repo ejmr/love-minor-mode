@@ -35,6 +35,8 @@
 ;;; If you are working on a LÖVE project then you can enable the minor
 ;;; mode with the command (love-minor-mode t).
 
+(require 'lua-mode)
+
 (defconst love-minor-mode-version-number "1.0"
   "The version number of the LÖVE minor mode.")
 
