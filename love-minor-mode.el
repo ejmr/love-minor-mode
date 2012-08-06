@@ -36,6 +36,11 @@
 ;;; mode with the command (love-minor-mode t).  Emacs will activate
 ;;; the minor mode automatically if you visit a Lua buffer that
 ;;; contains any built-in LÖVE names.
+;;;
+;;; See the file 'README.markdown' for a description of the commands
+;;; that LÖVE minor mode provides.  If you do not have the file
+;;; available then you can see the key-bindings and their commands by
+;;; entering 'C-h f love-minor-mode'.
 
 (require 'lua-mode)
 
