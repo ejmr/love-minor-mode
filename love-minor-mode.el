@@ -44,7 +44,7 @@
 
 (require 'lua-mode)
 
-(defconst love-minor-mode-version-number "1.0"
+(defconst love-minor-mode-version-number "1.0.1"
   "The version number of the LÖVE minor mode.")
 
 
