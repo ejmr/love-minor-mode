@@ -68,6 +68,7 @@
 (defvar love-minor-mode-map (make-sparse-keymap)
   "A keymap for LÖVE minor mode.")
 
+;;;###autoload
 (define-minor-mode love-minor-mode
   "Toggles LÖVE minor mode.
 
