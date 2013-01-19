@@ -1,46 +1,51 @@
 ;;; love-minor-mode.el --- Minor mode for working on LÖVE projects
-;;;
-;;; Copyright 2012 Eric James Michael Ritz
-;;;     <lobbyjones@gmail.com>
-;;;     <https://github.com/ejmr/love-minor-mode>
-;;;
-;;;
-;;;
+;;
+;; Copyright 2012, 2013 Eric James Michael Ritz
+;;
+;;; Author: Eric James Michael Ritz
+;;; URL: https://github.com/ejmr/love-minor-mode
+;;; Version: 1.0.1
+;;
+;;
+;;
 ;;; License:
-;;;
-;;; This file is free software; you can redistribute it and/or modify
-;;; it under the terms of the GNU General Public License as published
-;;; by the Free Software Foundation; either version 3 of the License,
-;;; or (at your option) any later version.
-;;;
-;;; This file is distributed in the hope that it will be useful, but
-;;; WITHOUT ANY WARRANTY; without even the implied warranty of
-;;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;;; General Public License for more details.
-;;;
-;;; You should have received a copy of the GNU General Public License
-;;; along with this file; if not, write to the Free Software
-;;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-;;; 02110-1301, USA.
-;;;
-;;;
-;;;
+;;
+;; This file is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published
+;; by the Free Software Foundation; either version 3 of the License,
+;; or (at your option) any later version.
+;;
+;; This file is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this file; if not, write to the Free Software
+;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+;; 02110-1301, USA.
+;;
+;;
+;;
 ;;; Usage:
-;;;
-;;; Put this file in your Emacs lisp path (i.e. site-lisp) and add
-;;; this to your `.emacs' file:
-;;;
-;;;     (require 'love-minor-mode)
-;;;
-;;; If you are working on a LÖVE project then you can enable the minor
-;;; mode with the command (love-minor-mode t).  Emacs will activate
-;;; the minor mode automatically if you visit a Lua buffer that
-;;; contains any built-in LÖVE names.
-;;;
-;;; See the file 'README.markdown' for a description of the commands
-;;; that LÖVE minor mode provides.  If you do not have the file
-;;; available then you can see the key-bindings and their commands by
-;;; entering 'C-h f love-minor-mode'.
+;;
+;; Put this file in your Emacs lisp path (i.e. site-lisp) and add
+;; this to your `.emacs' file:
+;;
+;;     (require 'love-minor-mode)
+;;
+;; If you are working on a LÖVE project then you can enable the minor
+;; mode with the command (love-minor-mode t).  Emacs will activate
+;; the minor mode automatically if you visit a Lua buffer that
+;; contains any built-in LÖVE names.
+;;
+;; See the file 'README.markdown' for a description of the commands
+;; that LÖVE minor mode provides.  If you do not have the file
+;; available then you can see the key-bindings and their commands by
+;; entering 'C-h f love-minor-mode'.
+;;
+;;
+;;; Code:
 
 (require 'lua-mode)
 
@@ -211,3 +216,5 @@ Otherwise we open the browser to the online wiki."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'love-minor-mode)
+
+;;; love-minor-mode.el ends here
