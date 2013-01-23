@@ -194,6 +194,33 @@ Otherwise we open the browser to the online wiki."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; Provides a command for searching the official forums.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defcustom love-forum-url "https://love2d.org/forums/"
+  "URL for the official LÖVE forums."
+  :type 'string
+  :group 'love)
+
+(defun love/search-forums (terms)
+  "Searchs the official LÖVE forums for the given `terms' and
+opens the results in the user's web browser."
+  (interactive "sSearch For: ")
+  (let* ((search-terms (replace-regexp-in-string "\\s+" "+" terms))
+         (search-url (format
+                      (concat "%ssearch.php?keywords=%s"
+                              "&terms=all&author=&sc=1&sf=all&sr=posts&sk=t&"
+                              "sd=d&st=0&ch=300&t=0&submit=Search")
+                      love-forum-url
+                      search-terms)))
+    (browse-url search-url)))
+
+(define-key love-minor-mode-map (kbd "C-c C-f") 'love/search-forums)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; Create a command menu.
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

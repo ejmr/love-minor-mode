@@ -35,6 +35,14 @@ documentation which is available for download from the LÖVE website.
 `C-c C-m` will first attempt to open any local documentation if you
 have it.  Failing that, it will browse to the online wiki.
 
+Search the Forums
+-----------------
+
+By pressing `C-c C-f` you can search [the LÖVE forums][forums] for any
+topics.  The variable `love-forum-url` contains the URL for the
+forums.  You can change it if you want, but you should never need to
+do so.
+
 Command Menu
 ------------
 
@@ -63,3 +71,4 @@ license is available in the `LICENSE` file.
 [love]: http://love2d.org/
 [ewiki]: http://www.emacswiki.org/cgi-bin/wiki/
 [luamode]: http://immerrr.github.com/lua-mode/
+[forums]: https://love2d.org/forums/
