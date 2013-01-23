@@ -235,6 +235,9 @@ opens the results in the user's web browser."
 (define-key love-minor-mode-map [menu-bar love create-project]
   '("Create Project" . love/create-project-configuration))
 
+(define-key love-minor-mode-map [menu-bar love search-forums]
+  '("Search Forums" . love/search-forums))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
