@@ -15,6 +15,7 @@ LÖVE minor mode provides the following features:
 (**Note:** All key sequences have the format `C-c C-o <key>` to avoid
 conflicts with lua-mode.)
 
+
 Creating New Projects
 ---------------------
 
@@ -23,6 +24,7 @@ The command `C-c C-o p` will help create a new project by creating a
 create the `love.conf()` function the LÖVE engine uses.  It will also
 fill in the name and identity, important attributes that LÖVE uses for
 things such as determining where to save game data.
+
 
 Browsing Documentation
 ----------------------
@@ -38,6 +40,7 @@ documentation which is available for download from the LÖVE website.
 `C-c C-m` will first attempt to open any local documentation if you
 have it.  Failing that, it will browse to the online wiki.
 
+
 Search the Forums
 -----------------
 
@@ -45,6 +48,7 @@ By pressing `C-c C-o f` you can search [the LÖVE forums][forums] for any
 topics.  The variable `love-forum-url` contains the URL for the
 forums.  You can change it if you want, but you should never need to
 do so.
+
 
 Command Menu
 ------------
@@ -65,11 +69,11 @@ When reporting bugs for LÖVE minor mode please include the value of
 License
 =======
 
-The license for LÖVE minor mode is the GNU Public License 3.  The full
-license is available in the `LICENSE` file.
+[GNU General Public License 3][gpl]
 
 
 
+[gpl]: http://www.gnu.org/copyleft/gpl.html
 [emacs]: http://www.gnu.org/software/emacs/
 [love]: http://love2d.org/
 [ewiki]: http://www.emacswiki.org/cgi-bin/wiki/
