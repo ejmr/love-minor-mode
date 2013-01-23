@@ -37,7 +37,7 @@ documentation which is available for download from the LÖVE website.
 
 2. `love-wiki-url`: The URL to the official LÖVE wiki.
 
-`C-c C-m` will first attempt to open any local documentation if you
+`C-c C-o d` will first attempt to open any local documentation if you
 have it.  Failing that, it will browse to the online wiki.
 
 
