@@ -12,10 +12,13 @@ Features
 
 LÖVE minor mode provides the following features:
 
+(**Note:** All key sequences have the format `C-c C-o <key>` to avoid
+conflicts with lua-mode.)
+
 Creating New Projects
 ---------------------
 
-The command `C-c C-p` will help create a new project by creating a
+The command `C-c C-o p` will help create a new project by creating a
 `conf.lua` file in a given directory.  The mode will automatically
 create the `love.conf()` function the LÖVE engine uses.  It will also
 fill in the name and identity, important attributes that LÖVE uses for
@@ -24,7 +27,7 @@ things such as determining where to save game data.
 Browsing Documentation
 ----------------------
 
-Pressing `C-c C-m` will open up your browser with LÖVE documentation.
+Pressing `C-c C-o d` will open up your browser with LÖVE documentation.
 Two customizable variables determine what page the command opens:
 
 1. `love-local-documentation-path`: A path to a local copy of the LÖVE
@@ -38,7 +41,7 @@ have it.  Failing that, it will browse to the online wiki.
 Search the Forums
 -----------------
 
-By pressing `C-c C-f` you can search [the LÖVE forums][forums] for any
+By pressing `C-c C-o f` you can search [the LÖVE forums][forums] for any
 topics.  The variable `love-forum-url` contains the URL for the
 forums.  You can change it if you want, but you should never need to
 do so.

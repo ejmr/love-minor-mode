@@ -157,7 +157,7 @@ end\n" name identity))
       (indent-region (point-min) (point-max))
       (save-buffer))))
 
-(define-key love-minor-mode-map (kbd "C-c C-p") 'love/create-project-configuration)
+(define-key love-minor-mode-map (kbd "C-c C-o p") 'love/create-project-configuration)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -189,7 +189,7 @@ Otherwise we open the browser to the online wiki."
       (browse-url love-wiki-url)
     (browse-url love-local-documentation-path)))
 
-(define-key love-minor-mode-map (kbd "C-c C-m") 'love/browse-documentation)
+(define-key love-minor-mode-map (kbd "C-c C-o d") 'love/browse-documentation)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -216,7 +216,7 @@ opens the results in the user's web browser."
                       search-terms)))
     (browse-url search-url)))
 
-(define-key love-minor-mode-map (kbd "C-c C-f") 'love/search-forums)
+(define-key love-minor-mode-map (kbd "C-c C-o f") 'love/search-forums)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
