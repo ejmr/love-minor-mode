@@ -4,7 +4,7 @@
 ;;
 ;;; Author: Eric James Michael Ritz
 ;;; URL: https://github.com/ejmr/love-minor-mode
-;;; Version: 1.0.1
+;;; Version: 1.1
 ;;
 ;;
 ;;
@@ -49,7 +49,7 @@
 
 (require 'lua-mode)
 
-(defconst love-minor-mode-version-number "1.0.1"
+(defconst love-minor-mode-version-number "1.1"
   "The version number of the LÖVE minor mode.")
 
 
