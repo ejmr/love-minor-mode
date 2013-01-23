@@ -3,9 +3,7 @@ love-minor-mode
 
 This project adds a minor mode for [GNU Emacs][emacs] that adds tools
 to help developing [games using the LÖVE engine][love].  This minor
-mode works in conjunction with lua-mode that is part of GNU Emacs; or
-if you do not have `lua-mode.el` you can find it at the
-[EmacsWiki][ewiki].
+mode works in conjunction with and requires [lua-mode][luamode].
 
 
 
@@ -64,3 +62,4 @@ license is available in the `LICENSE` file.
 [emacs]: http://www.gnu.org/software/emacs/
 [love]: http://love2d.org/
 [ewiki]: http://www.emacswiki.org/cgi-bin/wiki/
+[luamode]: http://immerrr.github.com/lua-mode/
