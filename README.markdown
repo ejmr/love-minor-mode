@@ -12,8 +12,8 @@ Features
 
 LÖVE minor mode provides the following features:
 
-(**Note:** All key sequences have the format `C-c C-o <key>` to avoid
-conflicts with lua-mode.)
+**Note:** All key sequences have the format `C-c C-o <key>` to avoid
+conflicts with lua-mode.
 
 
 Creating New Projects
