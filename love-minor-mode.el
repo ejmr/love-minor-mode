@@ -207,7 +207,7 @@ Otherwise we open the browser to the online wiki."
   "Searchs the official LÖVE forums for the given `terms' and
 opens the results in the user's web browser."
   (interactive "sSearch For: ")
-  (let* ((search-terms (replace-regexp-in-string "\\s+" "+" terms))
+  (let* ((search-terms (replace-regexp-in-string "\\s-+" "+" terms))
          (search-url (format
                       (concat "%ssearch.php?keywords=%s"
                               "&terms=all&author=&sc=1&sf=all&sr=posts&sk=t&"
