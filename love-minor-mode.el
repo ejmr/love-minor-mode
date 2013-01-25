@@ -123,10 +123,10 @@ and standard modules.")
   "This function determines whether or not to automatically
 enable `love-minor-mode'.  If the current buffer contains any
 LÖVE-specific functions then we enable the minor mode."
-  (if (re-search-forward love/built-in-names nil t)
-      (progn
-        (love-minor-mode t)
-        (goto-char (point-min)))))
+  (save-excursion
+    (goto-char (point-min))
+    (if (re-search-forward love/built-in-names nil t)
+        (love-minor-mode t))))
 
 (add-hook 'lua-mode-hook 'love/automatically-enable)
 
