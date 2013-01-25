@@ -119,7 +119,7 @@
   "A regular expression matching built-in LÖVE callback functions
 and standard modules.")
 
-(defun love/automatically-enable ()
+(defun love/possibly-enable-mode ()
   "This function determines whether or not to automatically
 enable `love-minor-mode'.  If the current buffer contains any
 LÖVE-specific functions then we enable the minor mode."
@@ -128,7 +128,7 @@ LÖVE-specific functions then we enable the minor mode."
     (if (re-search-forward love/built-in-names nil t)
         (love-minor-mode t))))
 
-(add-hook 'lua-mode-hook 'love/automatically-enable)
+(add-hook 'lua-mode-hook 'love/possibly-enable-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
