@@ -55,6 +55,29 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; Create the keymap.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defvar love-minor-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-c C-o p") 'love/create-project-configuration)
+    (define-key map (kbd "C-c C-o f") 'love/search-forums)
+    (define-key map (kbd "C-c C-o d") 'love/browse-documentation)
+    (define-key map [menu-bar] (make-sparse-keymap))
+    (define-key map [menu-bar love]
+      (cons "LÖVE" (make-sparse-keymap "LÖVE")))
+    (define-key map [menu-bar love browse-documentation]
+      '("Browse Documentation" . love/browse-documentation))
+    (define-key map [menu-bar love create-project]
+      '("Create Project" . love/create-project-configuration))
+    (define-key map [menu-bar love search-forums]
+      '("Search Forums" . love/search-forums)))
+  "A keymap for LÖVE minor mode.")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
 ;;; Define a customize group for LÖVE and the minor mode itself.
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -207,29 +230,6 @@ opens the results in the user's web browser."
                       love-forum-url
                       search-terms)))
     (browse-url search-url)))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;; Create the keymap.
-;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defvar love-minor-mode-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c C-o p") 'love/create-project-configuration)
-    (define-key map (kbd "C-c C-o f") 'love/search-forums)
-    (define-key map (kbd "C-c C-o d") 'love/browse-documentation)
-    (define-key map [menu-bar] (make-sparse-keymap))
-    (define-key map [menu-bar love]
-      (cons "LÖVE" (make-sparse-keymap "LÖVE")))
-    (define-key map [menu-bar love browse-documentation]
-      '("Browse Documentation" . love/browse-documentation))
-    (define-key map [menu-bar love create-project]
-      '("Create Project" . love/create-project-configuration))
-    (define-key map [menu-bar love search-forums]
-      '("Search Forums" . love/search-forums)))
-  "A keymap for LÖVE minor mode.")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
