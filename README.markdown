@@ -66,6 +66,13 @@ When reporting bugs for LÖVE minor mode please include the value of
 
 
 
+Contributors
+============
+
+1. [Peter Vasil](https://github.com/ptrv)
+
+
+
 License
 =======
 
