@@ -72,7 +72,8 @@
     (define-key map [menu-bar love create-project]
       '("Create Project" . love/create-project-configuration))
     (define-key map [menu-bar love search-forums]
-      '("Search Forums" . love/search-forums)))
+      '("Search Forums" . love/search-forums))
+    map)
   "A keymap for LÖVE minor mode.")
 
 
