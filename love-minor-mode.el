@@ -2,9 +2,10 @@
 ;;
 ;; Copyright 2012, 2013 Eric James Michael Ritz
 ;;
-;;; Author: Eric James Michael Ritz
-;;; URL: https://github.com/ejmr/love-minor-mode
-;;; Version: 1.1
+;; Author: Eric James Michael Ritz
+;; URL: https://github.com/ejmr/love-minor-mode
+;; Version: 1.1
+;; Package-Requires: ((lua-mode "20130419"))
 ;;
 ;;
 ;;
@@ -25,9 +26,13 @@
 ;; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 ;; 02110-1301, USA.
 ;;
+;;; Commentary:
 ;;
+;; This project adds a minor mode for GNU Emacs that adds tools to help
+;; developing games using the `LÖVE' engine. This minor mode works in
+;; conjunction with and requires `lua-mode'.
 ;;
-;;; Usage:
+;; Usage:
 ;;
 ;; Put this file in your Emacs lisp path (i.e. site-lisp) and add
 ;; this to your `.emacs' file:
@@ -52,7 +57,6 @@
 (defconst love-minor-mode-version-number "1.1"
   "The version number of the LÖVE minor mode.")
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Create the keymap.
@@ -75,7 +79,6 @@
       '("Search Forums" . love/search-forums)))
   "A keymap for LÖVE minor mode.")
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Define a customize group for LÖVE and the minor mode itself.
@@ -97,7 +100,6 @@
   :group 'love
   :keymap love-minor-mode-map)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Automatically enable LÖVE minor mode if the current buffer
@@ -138,6 +140,7 @@
   "A regular expression matching built-in LÖVE callback functions
 and standard modules.")
 
+;;;###autoload
 (defun love/possibly-enable-mode ()
   "This function determines whether or not to automatically
 enable `love-minor-mode'.  If the current buffer contains any
@@ -147,15 +150,17 @@ LÖVE-specific functions then we enable the minor mode."
     (if (re-search-forward love/built-in-names nil t)
         (love-minor-mode t))))
 
-(add-hook 'lua-mode-hook 'love/possibly-enable-mode)
+;;;###autoload
+(progn
+  (add-hook 'lua-mode-hook 'love/possibly-enable-mode))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; This functionality helps to create a new LÖVE project.
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;###autoload
 (defun love/create-project-configuration (directory name identity)
   "This function creates a `conf.lua' file in a given directory.
 It automatically fills the file with the love.conf() function and
@@ -176,7 +181,6 @@ end\n" name identity))
       (indent-region (point-min) (point-max))
       (save-buffer))))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Provide commands for browsing documentation like the official wiki
@@ -206,7 +210,6 @@ Otherwise we open the browser to the online wiki."
       (browse-url love-wiki-url)
     (browse-url love-local-documentation-path)))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; Provides a command for searching the official forums.
@@ -231,7 +234,6 @@ opens the results in the user's web browser."
                       search-terms)))
     (browse-url search-url)))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; This section contains any wrap-up or clean-up code in the package
