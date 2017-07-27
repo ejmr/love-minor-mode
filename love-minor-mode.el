@@ -246,7 +246,8 @@ opens the results in the user's web browser."
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defcustom love-exe "c:/programs/love-0.10.2-win32/love.exe"
+(defcustom love-exe (or (executable-find "love")
+			"c:/programs/love-0.10.2-win32/love.exe")
   "Path to LÖVE executable for playtesting."
   :type 'string
   :group 'love)
