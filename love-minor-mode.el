@@ -68,9 +68,13 @@
     (define-key map (kbd "C-c C-o p") 'love/create-project-configuration)
     (define-key map (kbd "C-c C-o f") 'love/search-forums)
     (define-key map (kbd "C-c C-o d") 'love/browse-documentation)
+    (define-key map (kbd "M-p") 'love/play)
     (define-key map [menu-bar] (make-sparse-keymap))
     (define-key map [menu-bar love]
       (cons "LÖVE" (make-sparse-keymap "LÖVE")))
+    (define-key map [menu-bar love play]
+      '("Playtest" . love/play))
+    (define-key map [menu-bar love --] '("--" . nil))
     (define-key map [menu-bar love browse-documentation]
       '("Browse Documentation" . love/browse-documentation))
     (define-key map [menu-bar love create-project]
@@ -234,6 +238,26 @@ opens the results in the user's web browser."
                       love-forum-url
                       search-terms)))
     (browse-url search-url)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; Playtesting.
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defcustom love-exe "c:/programs/love-0.10.2-win32/love.exe"
+  "Path to LÖVE executable for playtesting."
+  :type 'string
+  :group 'love)
+
+(defun love/play ()
+  (interactive)
+  (message love-exe)
+  (call-process love-exe nil "*love-output*" t 
+		(file-name-directory (buffer-file-name)))
+  )
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;

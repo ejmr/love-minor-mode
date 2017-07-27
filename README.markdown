@@ -50,6 +50,19 @@ forums.  You can change it if you want, but you should never need to
 do so.
 
 
+Playtesting
+-----------
+
+Playtest your game-in-progress by pressing `M-p`. It will launch the
+LÖVE executable defined in the `love-exe` variable with the
+directory of the file you are currently editing. Output will be
+recorded in the `*love-output*` buffer for easy inspection.
+
+You can also launch the game from the drop-down menu.
+
+Note that the file you are editing must be in the top level of the
+game directory for this to work.
+
 Command Menu
 ------------
 
