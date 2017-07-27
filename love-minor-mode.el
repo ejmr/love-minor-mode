@@ -253,6 +253,7 @@ opens the results in the user's web browser."
   :group 'love)
 
 (defun love/play ()
+  "Run LÖVE externally for the sake of playtesting."
   (interactive)
   (message love-exe)
   (call-process love-exe nil "*love-output*" t 
