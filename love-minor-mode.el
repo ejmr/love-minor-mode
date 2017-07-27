@@ -256,8 +256,7 @@ opens the results in the user's web browser."
   (interactive)
   (message love-exe)
   (call-process love-exe nil "*love-output*" t 
-		(file-name-directory (buffer-file-name)))
-  )
+		(file-name-directory (buffer-file-name))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
