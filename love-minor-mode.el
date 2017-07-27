@@ -1,6 +1,6 @@
 ;;; love-minor-mode.el --- Minor mode for working on LÖVE projects
 ;;
-;; Copyright 2012, 2013 Eric James Michael Ritz
+;; Copyright 2012--2017 Eric James Michael Ritz
 ;;
 ;; Author: Eric James Michael Ritz
 ;; URL: https://github.com/ejmr/love-minor-mode
