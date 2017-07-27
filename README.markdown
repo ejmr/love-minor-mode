@@ -83,6 +83,7 @@ Contributors
 ============
 
 1. [Peter Vasil](https://github.com/ptrv)
+2. [JF](https://github.com/oofoe)
 
 
 
